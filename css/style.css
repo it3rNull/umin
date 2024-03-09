@@ -1,0 +1,462 @@
+/* Global */
+:root{
+	/* 가독성 & 유지보수성 UP */
+	/* 한 단계 더 추상화된 색상 사용하는것도 좋음*/
+	--color-primary: var(--color-black);
+	--color-primary-variant: var(--color-gray);
+	--color-accent: var(--color-blue);
+	--color-accent-variant: var(--color-orange);
+	--color-text: var(--color-white);
+	/* Colors */
+	--color-white: #ffffff;
+	--color-black: #050a13;
+	--color-blue: #fff200;
+	--color-orange: #fd6413;
+	--color-gray: #1b1e26;
+	/* size */
+	--size-max-width: 1200px;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Jua', sans-serif;
+	margin: 0;
+}
+
+h1,h2,h3,p,ul{
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+	padding-left: 0;
+}
+
+a{
+	text-decoration: none;
+	color: var(--color-text);
+}
+
+button{
+	background-color: transparent;
+	outline: 0;
+	border: 0;
+}
+
+button:focus{
+	outline: 1px solid transparent;
+}
+
+/* Common */
+.section{
+	padding: 4rem;
+	text-align: center;
+}
+
+.title{
+	font-size: 2.5rem;
+	margin: 1rem 0;
+}
+
+.descripion{
+	font-size: 1.5rem;
+	margin: 0.5rem 0;
+}
+
+.max-container{
+	max-width: var(--size-max-width);
+	margin: auto;
+}
+
+/* header */
+.header {
+	background-color: transparent;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	padding: 1rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	z-index: 1;
+	transition: all 250ms ease;
+}
+
+.header--dark {
+	background-color: var(--color-black);	
+	box-shadow: 0px 10px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.header__logo{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+}
+
+.header__logo__img {
+	width: 40px;
+	height: 40px;
+}
+
+.header__logo__title{
+	font-size: 1.4rem;
+}
+
+.header__toggle {
+	display: none;
+	color: var(--color-white);
+	font-size: 1.5rem;
+	position: absolute;
+	top: 1.35rem;
+	right: 1rem;
+}
+
+.header__menu{
+	display: flex;
+	gap: 4px;
+}
+
+.header__menu__item{
+	display: block;
+	padding: 8px 16px;
+	border-bottom: 1px solid transparent;
+}
+
+.header__menu__item:hover{
+	border-bottom: 1px solid var(--color-accent);
+}
+
+.header__menu__item.active{
+	border: 1px solid var(--color-accent);
+	border-radius: 4px;
+}
+
+/* Home */
+#home {
+	background-color: #FEE1E8;	
+	color: black;
+	padding: 5rem 1rem;
+	padding-top: 7rem;
+	text-align: center;
+}
+
+.home__profilephoto{
+	width: 250px;
+	height: 250px;
+	object-fit: cover;
+	/* border: 3px solid var(--color-accent); */
+}
+
+.home__title{
+	font-size: 4rem;
+	margin-bottom: 1rem;
+}
+
+.home__title--strong{
+	color: var(--color-accent);
+}
+
+.home__description{
+	font-size: 1.3rem;
+}
+
+.home__contact{
+	display: inline-block;
+	background-color: var(--color-accent);
+	color: var(--color-black);
+	padding: 0.5rem 1rem;
+	margin: 2rem;
+	font-weight: bold;
+	border-radius: 4px;
+}
+
+.home__contact:hover{
+	background-color: transparent;
+	outline: 2px solid var(--color-accent);
+	color: var(--color-text);
+}
+
+/* about */
+.profile__photo{
+	width: 20rem;
+	border-radius: 1rem;
+}
+
+.majors{
+	display:flex;
+	justify-content: space-between;
+	gap: 1rem;
+	margin: 2.5rem 0;
+}
+
+.major{
+	background-color: #FEE1E8;
+	padding: 2rem 1rem;
+	width: 30rem;
+	color: black;
+	border-radius: 1rem;
+	cursor: default;
+	/* box-shadow: 4px 8px 4px 0px rgba(0, 0, 0, 0.75); */
+}
+
+.major__icon{
+	font-size: 4rem;
+	margin: 1rem 0;
+	color: var(--color-accent);
+	transition: all 300ms ease;
+}
+
+.major__title {
+	font-size: 2.5rem;
+	font-weight: bold;
+	margin-bottom: 0.2rem;
+}
+
+.major:hover .major__icon{
+	transform: rotate(-15deg) scale(1.2);
+}
+
+.jobs {
+	text-align: start;
+}
+
+.job{
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 1rem;
+}
+
+.job_name{
+	color: var(--color-primary);
+}
+
+.job__period{
+	color: var(--color-primary);
+	font-size: 0.8rem;
+}
+
+.job__img{
+	width: 3rem;
+}
+
+/* skills */
+#skills {
+	background-color: var(--color-primary-variant);
+	color: var(--color-text);
+}
+
+.skills-container{
+	margin: 2rem 3rem;
+	border-radius: 8px;
+	overflow: hidden;
+	display: grid;
+	grid-template-columns: 6fr 4fr;
+}
+.skills__title{
+	color: var(--color-accent);
+	margin: 1rem 0;
+	font-size: 1.5rem;
+}
+.skills__coding{
+	grid-row: span 2;
+	padding: 1rem;
+	background-color: var(--color-primary);
+}
+
+.skills__tools{
+	padding: 1rem;
+}
+
+.skills__items {
+	padding: 1rem;
+	background-color: var(--color-primary);
+	filter: brightness(150%);
+}
+
+
+/* skills_bar */
+
+.bar {
+	display: flex;
+	flex-direction: column;
+	padding: 1rem;
+	gap: 0.5rem;
+}
+
+.bar__metadata{
+	display: flex;
+	justify-content: space-between;
+}
+
+.bar__bg{
+	width: 100%;
+	height: 3px;
+	background-color: var(--color-primary-variant);
+}
+
+.bar__value {
+	height: 3px;
+	background-color: var(--color-accent);
+}
+
+.date{
+	margin-top: 1.5rem;
+	font-size: 2rem;
+}
+
+/* Testimonial */
+.testimonials{
+	margin: 3rem;
+}
+
+.testimonial{
+	display: flex;
+	gap: 2rem;
+	align-items: center;
+	margin-bottom: 2rem;
+}
+
+.testimonial:nth-child(even) .testimonial__img{
+	order: 1;
+}
+
+.testimonial__img{
+	height: 300px;
+	box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+}
+
+.testimonial__bubble{
+	padding: 1rem;
+	border-radius: 8px;
+	box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+}
+
+.testimonial__bubble__name {
+	color: var(--color-accent);
+	filter: brightness(70%);
+}
+
+.testimonial__comment{
+	margin-top: 1rem;
+}
+/* arrow up */
+.arrow-up {
+	background-color: var(--color-primary);
+	position: fixed;
+	bottom: 3rem;
+	right: 3rem;
+	font-size: 3rem;
+	width: 4.5rem;
+	height: 4.5rem;
+	border-radius: 100%;
+	text-align: center;
+	box-shadow: 3px 3px 0px 0px var(--color-accent);
+	transition: opacity 250ms ease-in;
+}
+/* footer */
+
+#contact {
+	background-color: #FEE1E8;
+	color: black;
+}
+
+.contact__link{
+	display: flex;
+	justify-content: center;
+	gap: 1rem;
+	padding: 1rem;
+	font-size: 2rem;
+	transition: color 250ms ease-in;
+}
+
+.contact__link:hover{
+	color: var(--color-accent);
+}
+
+.footer__final{
+	width: 25rem;
+	border-radius: 25%;
+}
+
+/* reactive */
+@media screen and (max-width: 768px) {
+	.section{
+		padding: 4rem 2rem;
+	}
+	.title{
+		font-size: 2rem;
+	}
+	.description{
+		font-size: 1rem;
+	}
+	.header {
+		flex-direction: column;
+		align-items: start;
+		background-color: var(--color-primary);
+	}
+	.header__toggle {
+		display: block;
+	}
+	.header__menu {
+		display: none;
+		flex-direction: column;
+		text-align: center;
+		margin: 1rem 4rem;
+		gap: 1rem;
+	}
+	.header__menu.open {
+		display: flex;
+	}
+	.header__nav {
+		width: 100%;
+		text-align: center;
+		padding: 1rem 4rem;
+		gap: 1rem;
+	}
+	#home {
+		padding-bottom: 3rem;
+	}
+	.home__title{
+		font-size: 2.5rem;
+		margin-bottom: 0.5rem;
+	}
+	.majors {
+		flex-direction: column;
+		align-items: center;
+	}
+	.major {
+		max-width: 25rem;
+	}
+	.job {
+		justify-content: center;
+	}
+	.skills-container {
+		grid-template-columns: 1fr;
+	}
+	.categories {
+		flex-direction: column;
+	}
+	.category{
+		width: 100%;
+	}
+	.projects {
+		grid-template-columns: repeat(2, 1fr);
+	}
+	.testimonial {
+		flex-direction: column;
+	}
+	.testimonial:nth-child(even) .testimonial__img {
+		order: 0;
+	}
+	.arrow-up {
+		font-size: 2rem;
+		width: 3rem;
+		height: 3rem;
+		bottom: 1.5rem;
+		right: 1.5rem;
+	}
+}
